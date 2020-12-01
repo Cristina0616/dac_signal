@@ -98,6 +98,27 @@ print(len(y))
 plt.plot(x, y)
 plt.savefig("mygraph.png")
 */
+void create_arr(uint16_t *arr)
+{
+  int offset = 2047;
+  for (int i = 0; i < 1000; i++)
+    arr[i] = 2.048*i+offset;
+  
+  for (int i = 1000; i < 2000; i++)
+    arr[i] = -2.048*(i-1000)+offset*2;
+  
+  for (int i = 2000; i < 3000; i++)
+    arr[i] = offset;
+  
+  for (int i = 3000; i < 4000; i++)
+    arr[i] = -2.048*(i-3000)+offset;
+
+  for (int i = 4000; i < 5000; i++)
+    arr[i] = 2.048*(i-4000)+offset;
+
+  for (int i = 5000; i < 6000; i++)
+    arr[i] = offset;
+}
 /* USER CODE END 0 */
 
 /**
