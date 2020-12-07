@@ -97,6 +97,75 @@ print(len(y))
 
 plt.plot(x, y)
 plt.savefig("mygraph.png")
+
+
+
+
+
+
+for PIC16
+
+#include "pic.h"
+#define bitset(var,bitno)    ((var) |= 1 << (bitno))
+#define bitclr(var,bitno)    ((var) &= ~(1 << (bitno))
+#define DAC_AVERAGE_VAL 	85
+#define DAC_MAX_VAL			101
+#define DAC_MIN_VAL			68
+#define COUNT_VAL			17
+int idel = 0;
+#define delay() {for (idel = 0; idel < 6; idel++);}
+
+void main()
+{
+  bitclr(STATUS, RP0);
+  PORTB = 85;
+  bitset(STATUS, RP0);
+  TRISB = 0x00;
+  int i = 0;
+  while(1){
+  
+  for (i = 0; i < COUNT_VAL; i++)
+  {
+    PORTB = DAC_AVERAGE + i;
+	delay();
+  }
+  
+  for (i = 0; i < COUNT_VAL; i++)
+  {
+    PORTB = DAC_MAX_VAL - i;
+	delay();
+  }
+  
+  for (i = 0; i < COUNT_VAL; i++)
+  {
+    PORTB = DAC_AVERAGE;
+	delay();
+  }
+  
+  for (i = 0; i < COUNT_VAL; i++)
+  {
+    PORTB = DAC_AVERAGE - i;
+	delay();
+  }
+
+  for (i = 0; i < COUNT_VAL; i++)
+  {
+    PORTB = i + DAC_MIN_VAL;
+	delay();
+  }
+
+  for (i = 0; i < COUNT_VAL; i++)
+  {
+    PORTB = DAC_AVERAGE;
+	delay();
+  }
+}
+}
+
+
+
+
+
 */
 void create_arr(uint16_t *arr)
 {
